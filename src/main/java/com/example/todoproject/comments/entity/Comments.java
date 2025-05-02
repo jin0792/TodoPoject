@@ -1,6 +1,7 @@
 package com.example.todoproject.comments.entity;
 
 import com.example.todoproject.schedules.entity.BaseEntity;
+import com.example.todoproject.schedules.entity.Schedules;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +23,13 @@ public class Comments extends BaseEntity {
     private String contents;
 
     @Column(length = 100, nullable = false)
-    private String scheduleId;
+    private String content_reply;
 
+    @Column(nullable = false)
+    private int comment_count;
 
+    @ManyToOne
+    @JoinColumn(name = "schedules_id", nullable = false)
+    private Schedules schedules;
 
 }
