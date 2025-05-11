@@ -1,6 +1,7 @@
 package com.example.todoproject.schedules.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "schedules")
 @NoArgsConstructor
-public class Schedules extends BaseEntity {
+@AllArgsConstructor
+public class Schedule extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +25,7 @@ public class Schedules extends BaseEntity {
     @Column(nullable = false)
     private String content;
 
-    public Schedules(String writerId, String title, String content) {
+    public Schedule(String writerId, String title, String content) {
         this.writerId = writerId;
         this.title = title;
         this.content = content;

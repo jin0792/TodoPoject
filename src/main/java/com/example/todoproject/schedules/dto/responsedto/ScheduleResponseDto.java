@@ -5,18 +5,18 @@ import lombok.Getter;
 @Getter
 public class ScheduleResponseDto {
 
-    private final Long id;
+    private Long id;
 
-    private final String writerId;
+    private String writerId;
 
-    private final String title;
+    private String title;
 
-    private final String content;
+    private String contents;
 
-    public ScheduleResponseDto(Long id, String writerId, String title, String content) {
+    public ScheduleResponseDto(Long id, String writerId, String title, String contents) {
         this.id = id;
         this.writerId = writerId;
         this.title = title;
-        this.content = content;
+        this.contents = contents;
     }
 }

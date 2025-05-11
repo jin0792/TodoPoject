@@ -1,7 +1,7 @@
 package com.example.todoproject.schedules.service;
 
 import com.example.todoproject.schedules.dto.responsedto.ScheduleResponseDto;
-import com.example.todoproject.schedules.entity.Schedules;
+import com.example.todoproject.schedules.entity.Schedule;
 import com.example.todoproject.schedules.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,9 +21,9 @@ public class ScheduleService {
     @Transactional
     public ScheduleResponseDto addSchedule(String writerId, String title, String content) {
 
-        Schedules schedule = new Schedules(writerId, title, content);
+        Schedule schedule = new Schedule(writerId, title, content);
 
-        Schedules savedSchedule = scheduleRepository.save(schedule);
+        Schedule savedSchedule = scheduleRepository.save(schedule);
 
         return new ScheduleResponseDto(
                 savedSchedule.getId(),
@@ -36,7 +36,7 @@ public class ScheduleService {
     // 일정 전체 조회
     @Transactional
     public Page<ScheduleResponseDto> findAll(Pageable pageable) {
-        Page<Schedules> schedules = scheduleRepository.findAll(pageable);
+        Page<Schedule> schedules = scheduleRepository.findAll(pageable);
 
         return schedules.map(schedule -> new ScheduleResponseDto(schedule.getId(), schedule.getWriterId(), schedule.getTitle(), schedule.getContent()));
 
@@ -45,7 +45,7 @@ public class ScheduleService {
     // 일정 상세 조회
     @Transactional
     public ScheduleResponseDto findById(Long scheduleId) {
-        Schedules schedule = scheduleRepository.findById(scheduleId).orElseThrow(
+        Schedule schedule = scheduleRepository.findById(scheduleId).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "일정을 조회 할 수 없습니다." + scheduleId)
         );
 
@@ -56,7 +56,7 @@ public class ScheduleService {
     @Transactional
     public ScheduleResponseDto updateSchedule(Long scheduleId, String title, String content) {
 
-        Schedules schedule = scheduleRepository.findByOrElseThrow(scheduleId);
+        Schedule schedule = scheduleRepository.findByOrElseThrow(scheduleId);
 
         schedule.updateSchedule(title, content);
 
@@ -67,7 +67,7 @@ public class ScheduleService {
     @Transactional
     public void deleteSchedule(Long scheduleId) {
 
-        Schedules schedule = scheduleRepository.findByOrElseThrow(scheduleId);
+        Schedule schedule = scheduleRepository.findByOrElseThrow(scheduleId);
 
         scheduleRepository.delete(schedule);
     }
