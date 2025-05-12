@@ -18,7 +18,7 @@
 - DBdiagram
 
 **기타**
--Postman
+- Postman
 
 ## **🔍 요구사항**
 
