@@ -44,7 +44,7 @@ public class ScheduleController {
         return new ResponseEntity<>(responseDtoList, HttpStatus.OK);
     }
 
-    // 일정 상세 조최
+    // 일정 상세 조회
     @GetMapping("/{scheduleId}")
     public ResponseEntity<ScheduleResponseDto> findById(@PathVariable Long scheduleId) {
 
@@ -67,7 +67,7 @@ public class ScheduleController {
 
     // 일정 삭제
     @DeleteMapping("/{scheduleId}")
-    public ResponseEntity<ScheduleResponseDto> deleteSchedule(@RequestParam Long scheduleId) {
+    public ResponseEntity<ScheduleResponseDto> deleteSchedule(@PathVariable Long scheduleId) {
 
         scheduleService.deleteSchedule(scheduleId);
 
