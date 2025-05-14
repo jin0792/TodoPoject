@@ -19,7 +19,7 @@ public class CommentController {
     private final CommentService commentService;
 
     // 댓글 생성
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<CommentResponseDto> addComment(@PathVariable Long schedulesId, @Valid @RequestBody CommentRequestDto dto) {
         CommentResponseDto commentResponseDto =
                 commentService.addComment(schedulesId, dto.getWriterId(), dto.getContent(), dto.getParentCommentId());
