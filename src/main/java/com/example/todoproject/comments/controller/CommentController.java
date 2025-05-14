@@ -19,7 +19,7 @@ public class CommentController {
     private final CommentService commentService;
 
     // 댓글 생성
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<CommentResponseDto> addComment(@PathVariable Long schedulesId, @Valid @RequestBody CommentRequestDto dto) {
         CommentResponseDto commentResponseDto =
                 commentService.addComment(schedulesId, dto.getWriterId(), dto.getContent(), dto.getParentCommentId());
@@ -30,9 +30,9 @@ public class CommentController {
 
     // 특정 스케줄의 댓글 전체 조회
     @GetMapping
-    public ResponseEntity<List<CommentResponseDto>> findAllBySchedule(@PathVariable Long scheduleId) {
+    public ResponseEntity<List<CommentResponseDto>> findAllBySchedule(@PathVariable Long schedulesId) {
         List<CommentResponseDto> commentResponseDto =
-                commentService.findAllBySchedule(scheduleId);
+                commentService.findAllBySchedule(schedulesId);
         return new ResponseEntity<>(commentResponseDto, HttpStatus.OK);
     }
 
