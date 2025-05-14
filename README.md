@@ -72,3 +72,12 @@
     `일정 ID(scheduleId)`, `부모 댓글 ID(parentCommentId)`
 - [ ]  대댓글 조회 시, 부모 댓글 하위에 정렬되어 함께 조회합니다.
     - [ ]  부모 댓글 → 대댓글 순으로 정렬
+     
+## API 명세서
+![image](https://github.com/user-attachments/assets/8bd8e250-bd7a-451c-838f-888668fbfa85)
+![image](https://github.com/user-attachments/assets/72164e53-ae5f-44c9-960d-85b76bc6b11c)
+
+
+## ERD
+![image](https://github.com/user-attachments/assets/dc4baad9-218a-4065-bdf2-294bb916b8e4)
+
